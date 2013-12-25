@@ -1,0 +1,16 @@
+html
+    head
+        title= "Real time web chat"
+        script(src='/chat.js')
+        script(src='/socket.io/socket.io.js')
+        link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css')
+    body
+    .container
+        #content(style='width: 500px; height: 300px; margin: 0 auto; border: solid 1px #999; overflow-y: scroll;margin-bottom:1em;margin-top:3em;')
+        .controls
+            input.name(style='width:350px;margin:0 auto;display:block;', id='name', placeholder='Enter your name')
+            br
+            input.field(style='width:350px;margin:0 auto;display:block;', id='field', placeholder='Type your message')
+            input.btn(style='display:block;margin:0 auto;width:100px;margin-top:1em;',type='button', value='send', id='send')
+            br
+            
