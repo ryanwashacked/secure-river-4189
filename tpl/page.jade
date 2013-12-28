@@ -1,16 +1,19 @@
 html
     head
-        title= "Real time web chat"
+        title= "Web Chatorz"
+        script(src='http://code.jquery.com/jquery-1.10.1.min.js')
         script(src='/chat.js')
         script(src='/socket.io/socket.io.js')
         link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/style.css')
     body
-    .container
-        #content(style='width: 500px; height: 300px; margin: 0 auto; border: solid 1px #999; overflow-y: scroll;margin-bottom:1em;margin-top:3em;')
-        .controls
+    h4(style='color:white;') Real Time Web Chat with Node.js
+    .container-fluid
+        #content(style='width: 100%; height: 500px; margin: 0 auto; border: solid 1px #999; overflow-y: scroll;margin-bottom:1em;margin-top:3em;')
+        .controls(style='width: 500px;margin: 0 auto;margin-bottom: 1em;padding: 7px;padding-top: 23px;')
             input.name(style='width:350px;margin:0 auto;display:block;', id='name', placeholder='Enter your name')
             br
             input.field(style='width:350px;margin:0 auto;display:block;', id='field', placeholder='Type your message')
-            input.btn(style='display:block;margin:0 auto;width:100px;margin-top:1em;',type='button', value='send', id='send')
+            input.btn(style='display:block;margin:0 auto;width:100px;margin-top:1em;background-color:rgb(255, 153, 0);',type='button', value='send', id='send')
             br
             
