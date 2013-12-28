@@ -55,7 +55,7 @@ io.sockets.on('connection', function (socket) {
 
     var query = Chat.find({});
 
-    query.sort('-created_at').limit(8).exec(function(err,docs){
+    query.sort('-created_at').limit(40).exec(function(err,docs){
     	if(err) throw err;
 
     	socket.emit('load old msgs', docs);
