@@ -10,7 +10,7 @@ window.onload = function() {
     socket.on('message', function (data) {
         if(data.message) {
 
-            content.innerHTML += '<b>' + data.username + ': <b>';
+            content.innerHTML += '<small><i>' + realDate(new Date)+ '</i></small>' + ' ' +'<b>' + data.username + ': <b>';
             content.innerHTML +=  data.message + '<br />';
         } 
         else {
@@ -25,7 +25,7 @@ window.onload = function() {
 });
 
     function displayMsg(data){
-        content.innerHTML += '<b>' + data.username + ': <b>';
+        content.innerHTML += '<small><i>' +realDate(data.created_at)+ '</i></small>' +' '+ '<b>' + data.username + ': <b>';
         content.innerHTML +=  data.msg + '<br />';
     }
  
@@ -37,6 +37,30 @@ window.onload = function() {
             socket.emit('send', { message: text, username: name.value });
             field.value = '';
         }
-    };
+    }
+
+    $(field).bind('keypress', function(e){
+        if(e.keyCode == 13){
+            sendButton.click();
+        }
+        else{
+        
+            return;
+        }
+    });
+
+    function realDate(timestamp){
+        date = new Date(timestamp);
+        curr_date = date.getDate();
+        curr_month = date.getMonth() + 1;
+        curr_year = date.getFullYear();
+        curr_hour = date.getHours();
+        curr_minute = date.getMinutes();
+        curr_second = date.getSeconds();
+
+        fulldate = curr_date + '/' + curr_month + '/' + curr_year + '  ' + curr_hour + ':' + curr_minute + ':' + curr_minute;
+
+        return fulldate;
+    }
  
 }
