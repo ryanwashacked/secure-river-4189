@@ -1,0 +1,14 @@
+body{
+	background: url('img/zwartevilt.png');
+}
+
+#content b{
+	color:red;
+}
+
+#content {
+	background-color: white;
+	opacity: 0.4;
+	color:black;
+	font-weight: bold;
+}
