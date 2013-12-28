@@ -3,7 +3,12 @@ var app = express();
 var port = 3700;
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/chat', function(err){
+var uristring =
+process.env.MONGOLAB_URI ||
+process.env.MONGOHQ_URL ||
+'mongodb://localhost/chat';
+
+mongoose.connect(uristring, function(err){
 	if(err){
 		console.log(err)
 	}
