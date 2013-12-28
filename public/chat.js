@@ -9,17 +9,25 @@ window.onload = function() {
  
     socket.on('message', function (data) {
         if(data.message) {
-            messages.push(data);
-            var html = '';
-            for(var i=0; i<messages.length; i++) {
-                html += '<b>' + (messages[i].username ? messages[i].username : 'Server') + ': </b>';
-                html += messages[i].message + '<br />';
-            }
-            content.innerHTML = html;
-        } else {
+
+            content.innerHTML += '<b>' + data.username + ': <b>';
+            content.innerHTML +=  data.message + '<br />';
+        } 
+        else {
             console.log("There is a problem:", data);
         }
     });
+
+    socket.on('load old msgs', function(docs){
+    for (var i = docs.length - 1; i >= 0 ; i--){
+        displayMsg(docs[i]);
+    }
+});
+
+    function displayMsg(data){
+        content.innerHTML += '<b>' + data.username + ': <b>';
+        content.innerHTML +=  data.msg + '<br />';
+    }
  
     sendButton.onclick = function() {
         if(name.value == "") {
