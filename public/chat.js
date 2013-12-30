@@ -58,7 +58,7 @@ window.onload = function() {
         curr_minute = date.getMinutes();
         curr_second = date.getSeconds();
 
-        fulldate = curr_date + '/' + curr_month + '/' + curr_year + '  ' + curr_hour + ':' + curr_minute + ':' + curr_minute;
+        fulldate = curr_date + '/' + curr_month + '/' + curr_year + '  ' + curr_hour + ':' + curr_minute + ':' + curr_second;
 
         return fulldate;
     }
